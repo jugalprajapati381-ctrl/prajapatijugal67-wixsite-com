@@ -1,0 +1,25 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "installCommand": "npm ci --prefix admin",
+  "buildCommand": "npm run build --prefix admin && node admin/scripts/prepare-vercel-output.mjs",
+  "outputDirectory": "admin/vercel-output",
+  "rewrites": [
+    { "source": "/admin", "destination": "/admin/index.html" },
+    { "source": "/admin/", "destination": "/admin/index.html" },
+    { "source": "/admin/dashboard", "destination": "/admin/index.html" },
+    { "source": "/admin/homepage", "destination": "/admin/index.html" },
+    { "source": "/admin/services", "destination": "/admin/index.html" },
+    { "source": "/admin/booklets", "destination": "/admin/index.html" },
+    { "source": "/admin/materials", "destination": "/admin/index.html" },
+    { "source": "/admin/projects", "destination": "/admin/index.html" },
+    { "source": "/admin/videos", "destination": "/admin/index.html" },
+    { "source": "/admin/enquiries", "destination": "/admin/index.html" },
+    { "source": "/admin/testimonials", "destination": "/admin/index.html" },
+    { "source": "/admin/chatbot", "destination": "/admin/index.html" },
+    { "source": "/admin/whatsapp", "destination": "/admin/index.html" },
+    { "source": "/admin/media", "destination": "/admin/index.html" },
+    { "source": "/admin/users", "destination": "/admin/index.html" },
+    { "source": "/admin/settings", "destination": "/admin/index.html" },
+    { "source": "/admin/audit", "destination": "/admin/index.html" }
+  ]
+}

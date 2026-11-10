@@ -27,9 +27,11 @@ npm run build
 npm run preview
 ```
 
-The generated static frontend is written to `dist/`. Deploy the contents of
-`dist/` at the `/admin/` URL prefix, separately from the public website. See
-[DEPLOYMENT.md](./DEPLOYMENT.md) for path mapping and current hosting status.
+The admin build is written to `dist/`. For a combined Vercel deployment from
+the repository root, `vercel.json` runs the build and stages the unchanged
+public website plus the admin bundle into `admin/vercel-output/`. See
+[DEPLOYMENT.md](./DEPLOYMENT.md) for Vercel project settings and deployment
+verification.
 
 ## Authentication setup
 
