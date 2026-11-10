@@ -111,6 +111,7 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .popover strong { font-size: 12px; }
 .popover p { margin: 7px 0 12px; color: var(--muted); font-size: 11px; line-height: 1.55; }
 .popover > button { padding: 0; border: 0; color: var(--forest-light); background: none; cursor: pointer; font-size: 11px; font-weight: 650; }
+.popover > .profile-signout { display: block; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
 .notification-popover { width: 270px; }
 .search-suggestion { position: absolute; z-index: 11; top: 67px; right: 262px; display: flex; align-items: center; gap: 6px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); background: var(--surface); box-shadow: var(--shadow); font-size: 11px; }
 .search-suggestion button { padding: 0; border: 0; color: var(--forest); background: none; cursor: pointer; font-weight: 700; }
@@ -261,6 +262,28 @@ button:disabled { cursor: not-allowed; opacity: .55; }
 .demo-upload small { color: var(--muted); font-size: 9px; }
 .modal-footer { display: flex; justify-content: flex-end; gap: 8px; padding-top: 3px; }
 .form-feedback { margin: -4px 0 0; color: #718775; font-size: 10px; }
+
+.auth-page { display: grid; min-height: 100vh; place-items: center; padding: 24px; background: radial-gradient(ellipse at 50% 12%, rgb(180 138 96 / 12%), transparent 50%), var(--ivory); }
+.auth-card { width: min(100%, 430px); padding: 34px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); box-shadow: 0 18px 60px rgb(38 59 50 / 8%); }
+.auth-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; color: var(--forest); }
+.auth-brand-mark { display: grid; width: 39px; height: 39px; place-items: center; border-radius: 11px; color: #e7c89f; background: var(--forest); font-family: Manrope, sans-serif; font-size: 13px; font-weight: 800; }
+.auth-brand > span:last-child { display: grid; gap: 3px; }
+.auth-brand strong { font-family: Manrope, sans-serif; font-size: 13px; font-weight: 800; letter-spacing: .3px; }
+.auth-brand small { font-size: 8px; font-weight: 700; letter-spacing: 1.6px; }
+.auth-card h1 { margin: 0; font-family: Manrope, sans-serif; font-size: clamp(22px, 5vw, 28px); letter-spacing: -.8px; line-height: 1.27; }
+.auth-description { margin: 12px 0 18px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.auth-notice { display: grid; gap: 5px; padding: 13px; border: 1px solid #e8dfcf; border-radius: 8px; color: #786448; background: #f7f2e8; }
+:root[data-theme="dark"] .auth-notice { border-color: #655b4a; color: #ead9ba; background: #38342a; }
+.auth-notice strong { font-size: 11px; }
+.auth-notice span { font-size: 10px; line-height: 1.55; }
+.auth-form { display: grid; gap: 13px; margin-top: 18px; }
+.auth-form .form-field { gap: 7px; font-size: 11px; }
+.auth-form input { width: 100%; min-height: 42px; padding: 10px 11px; border: 1px solid var(--line); border-radius: 7px; color: var(--dark); background: var(--surface); font-size: 12px; }
+.auth-submit { width: 100%; min-height: 42px; margin-top: 2px; }
+.auth-error { margin: 0 0 14px; padding: 11px 12px; border: 1px solid #e8c9c2; border-radius: 7px; color: #854438; background: #fbefec; font-size: 11px; line-height: 1.55; }
+:root[data-theme="dark"] .auth-error { border-color: #704b43; color: #f0c3b9; background: #3a2a27; }
+.auth-home-link { width: 100%; margin-top: 16px; }
+.auth-footnote { margin: 25px 0 0; color: #a0a097; font-size: 9px; text-align: center; }
 
 @media (min-width: 1500px) { :root { --sidebar-width: 276px; }.page-content { padding-right: 45px; padding-left: 45px; }.topbar { padding-right: 45px; padding-left: 45px; } }
 @media (max-width: 1180px) { :root { --sidebar-width: 236px; }.admin-app--collapsed { --sidebar-width: 72px; }.sidebar { padding-right: 12px; padding-left: 12px; }.page-content { padding-right: 25px; padding-left: 25px; }.topbar { padding-right: 25px; padding-left: 25px; }.metrics-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }.metric-card:nth-child(4), .metric-card:nth-child(5) { display: none; }.app-footer { padding-right: 25px; padding-left: 25px; } }

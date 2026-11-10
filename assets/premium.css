@@ -676,6 +676,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 .site-footer { background: #eee8dd; }
+.footer-links .owner-login-link { font-size: .9em; opacity: .72; }
 
 .footer-inner > p { flex: 1 1 100%; padding-top: 16px; border-top: 1px solid var(--line); font-size: .78rem; }
 

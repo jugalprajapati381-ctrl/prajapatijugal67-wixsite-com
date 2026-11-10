@@ -1,5 +1,6 @@
 import { Bell, ChevronDown, Menu, Moon, Search, Sun } from 'lucide-react';
 import { useState } from 'react';
+import type { AdminIdentity } from '../auth/supabase';
 import type { SectionId } from '../types';
 
 interface HeaderProps {
@@ -10,11 +11,14 @@ interface HeaderProps {
   onTheme: () => void;
   onMenu: () => void;
   onNavigate: (id: SectionId) => void;
+  identity: AdminIdentity;
+  onLogout: () => void;
 }
 
-export default function Header({ title, search, onSearch, dark, onTheme, onMenu, onNavigate }: HeaderProps) {
+export default function Header({ title, search, onSearch, dark, onTheme, onMenu, onNavigate, identity, onLogout }: HeaderProps) {
   const [profileOpen, setProfileOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const displayRole = identity.role.replaceAll('_', ' ');
 
   return (
     <header className="topbar">
@@ -37,9 +41,9 @@ export default function Header({ title, search, onSearch, dark, onTheme, onMenu,
         <button className="icon-button theme-button" onClick={onTheme} aria-label={`Switch to ${dark ? 'light' : 'dark'} theme`}>{dark ? <Sun size={18} /> : <Moon size={18} />}</button>
         <div className="popover-wrap profile-wrap">
           <button className="profile-button" onClick={() => { setProfileOpen(!profileOpen); setNotificationsOpen(false); }} aria-expanded={profileOpen}>
-            <span className="profile-avatar">HO</span><span className="profile-copy"><strong>Demo owner</strong><small>Preview mode</small></span><ChevronDown size={15} />
+            <span className="profile-avatar">{identity.email.slice(0, 2).toUpperCase()}</span><span className="profile-copy"><strong>{identity.email}</strong><small>{displayRole}</small></span><ChevronDown size={15} />
           </button>
-          {profileOpen && <div className="popover profile-popover"><strong>Demo profile</strong><p>No account is signed in. Authentication has not been implemented.</p><button onClick={() => { onNavigate('settings'); setProfileOpen(false); }}>Website settings</button></div>}
+          {profileOpen && <div className="popover profile-popover"><strong>{displayRole}</strong><p>{identity.email}</p><button onClick={() => { onNavigate('settings'); setProfileOpen(false); }}>Website settings</button><button className="profile-signout" onClick={() => { setProfileOpen(false); onLogout(); }}>Sign out</button></div>}
         </div>
       </div>
     </header>
